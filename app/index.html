@@ -23,7 +23,7 @@
             <li v-for="album in albums">
                 <p>{{album.author}}</p>
                 <p>{{album.genre}}</p>
-                <img :src="album.poster" alt="poster{{album.author}} {{album.title}}">
+                <img :src="album.poster" :alt="`Poster ${album.author}  ${album.title}`">
                 <p>{{album.title}}</p>
                 <p>{{album.year}}</p>
             </li>
