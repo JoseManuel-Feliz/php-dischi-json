@@ -1,13 +1,29 @@
 console.log('JS OK');
-// IMPORT AXIOS
-const axios = require('axios/dist/browser/axios.cjs');
 
 //VUE INSTANCE
-import { createApp } from 'vue'
+const { createApp } = Vue
 
 createApp({
-    data() {
-        return {
-        }
-    }
+    data: () => ({
+        apiUri: 'http://localhost/php-dischi-json/api/index.php',
+        albums: [],
+    }), computed: {},
+    methods: {
+
+        getData() {
+            axios
+                .get(this.apiUri)
+                .then((response) => {
+                    this.albums = response.data;
+                    console.log(this.albums)
+                })
+                .catch((error) => {
+
+                    console.log(error);
+
+                })
+        },
+    }, created() {
+        this.getData()
+    },
 }).mount('#app')
