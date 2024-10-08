@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . "/../db/dischi.json";
-$output = json_encode("/../db/dischi.json");
+$output = file_get_contents("../db/dischi.json");
 
 header("Content-Type: application/json");
+
+echo $output;
